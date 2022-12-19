@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% load bootstrap4 %}
 {% block content %}
-
+<link rel="stylesheet" href="{% static 'style.css' %}">
 {% for i in products %}<br>
-{{ i.name }}<br>
-{{ i.description }}<br>
+<p>{{ i.name }}</p><br>
+<p>{{ i.description }}</p><br>
 <img src="{{ i.image.url }}"><br>
 {% endfor %}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
