@@ -2,12 +2,11 @@
 {% load static %}
 {% load bootstrap4 %}
 {% block content %}
+{% if user.is_authenticated %}
+{% else %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <div class="container">
-    <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type ="submit" value="Да">
-</form>
+    <p>Вы успешно вышли</p>
 </div>
+{% endif %}
 {% endblock %}

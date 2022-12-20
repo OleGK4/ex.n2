@@ -4,7 +4,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Product
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.models import User
 from .forms import ProductForm
 
@@ -39,3 +39,9 @@ class Login(LoginView):
     template_name = 'login.html'
     model = User
     success_url = '/'
+
+
+class LogOut(LogoutView):
+    model = User
+    success_url = '/'
+

@@ -2,11 +2,16 @@
 {% load static %}
 {% load bootstrap4 %}
 {% block content %}
+{% if user.is_authenticated %}
+<p>Вы уже авторизиваны</p>
+{% else %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
+<div class="container">
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type ="submit" value="Войти">
+    <input class="submit" type ="submit" value="Войти">
 </form>
-
+</div>
+{% endif %}
 {% endblock %}
